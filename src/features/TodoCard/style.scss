@@ -1,0 +1,17 @@
+.todoCard {
+  display: inline-flex;
+  flex-flow: column;
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 1px solid #aaaaaa;
+  max-width: 20rem;
+
+  &--done {
+    background-color: rgba(0, 219, 0, 0.445);
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-family: sans-serif;
+  }
+}
