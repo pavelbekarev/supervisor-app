@@ -4,9 +4,22 @@
   border: 2px solid #6b6b6b;
   border-radius: 1rem;
 
-  &__item {
+  &__controls {
+    display: flex;
+    gap: 2rem;
   }
+}
 
-  &__label {
+.button {
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  background-color: transparent;
+  border: 1px solid #aaaaaa;
+  transition: background-color 0.3s ease-out;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #eeeeee;
   }
 }

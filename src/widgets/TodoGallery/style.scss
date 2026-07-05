@@ -1,5 +1,5 @@
 .todoGallery {
-  display: grid;
-  grid-template-columns: repeat(6, auto);
-  width: 50rem;
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
 }

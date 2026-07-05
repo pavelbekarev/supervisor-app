@@ -5,7 +5,7 @@ export function DeleteButton({ data }: {data: Todo}) {
     const open = useModalStore((state) => state.open);
 
     return (
-        <button onClick={() => open("deleteTodo", data)}>
+        <button className="button deleteButton" onClick={() => open("deleteTodo", data)}>
             Удалить
         </button>
     )

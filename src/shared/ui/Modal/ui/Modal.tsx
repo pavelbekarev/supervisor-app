@@ -11,12 +11,14 @@ export function Modal() {
     const dialogRef = useRef<HTMLDialogElement>(null);
 
     useEffect(() => {
-    if (isOpen) {
-        dialogRef.current?.showModal();
-    } else {
-        dialogRef.current?.close();
-    }
+        if (isOpen) {
+            dialogRef.current?.showModal();
+        } else {
+            dialogRef.current?.close();
+        }
     }, [isOpen]);
+
+    
 
     if (!isOpen) return;
 

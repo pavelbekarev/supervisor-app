@@ -2,7 +2,7 @@ import type { Todo } from "#entities/Todo";
 import { useTodoList } from "#entities/Todo/model/store";
 import { TodoValidation } from "#entities/Todo/model/validation";
 import { useModalStore } from "#shared/ui/Modal/model/store";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as Yup from "yup";
 
 export function useAddEntity() {
@@ -29,6 +29,14 @@ export function useAddEntity() {
       }
     }
   };
+
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, []);
 
   const handleChange = (e: any) => {
     const { name, value, type, checked } = e.target;

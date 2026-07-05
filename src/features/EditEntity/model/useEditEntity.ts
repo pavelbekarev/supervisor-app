@@ -2,13 +2,21 @@ import type { Todo } from "#entities/Todo";
 import { useTodoList } from "#entities/Todo/model/store";
 import { TodoValidation } from "#entities/Todo/model/validation";
 import { useModalStore } from "#shared/ui/Modal/model/store";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as Yup from "yup";
 
 export function useEditEntity(editData: Todo) {
   const [formData, setFormData] = useState<Todo>(editData);
   const { updateTodo } = useTodoList();
   const close = useModalStore((state) => state.close);
+
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, []);
 
   const handleSubmit = async (e: any) => {
     e.preventDefault();

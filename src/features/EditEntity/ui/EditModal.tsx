@@ -1,8 +1,10 @@
 import { todoFormConfig, type Todo } from "#entities/Todo"
+import { useModalStore } from "#shared/ui/Modal/model/store";
 import { useEditEntity } from "../model/useEditEntity";
 import "../style.scss"
 
 export function EditModal<T>({ editData }: { editData: T }) {
+    const close = useModalStore(state => state.close)
     const { formData, handleChange, handleSubmit } = useEditEntity(editData as Todo);
 
     return (
@@ -23,7 +25,10 @@ export function EditModal<T>({ editData }: { editData: T }) {
                 ))
             }
 
-            <button className="form__submit" type="submit">Сохранить</button>
+            <div className="form__controls">
+                <button className="form__submit" onClick={close}>Отменить</button>
+                <button className="form__submit" type="submit">Сохранить</button>
+            </div>
         </form>
     )
 }
