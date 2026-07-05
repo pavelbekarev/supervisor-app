@@ -9,8 +9,8 @@ interface AuthStore {
 }
 
 interface UserStore {
-  users: Partial<User>[];
-  setUsers: (users: Partial<User>[]) => void;
+  users: User[];
+  setUsers: (users: User[]) => void;
 }
 
 export const useAuthorizatedUser = create<AuthStore>((set) => ({
@@ -23,5 +23,5 @@ export const useAuthorizatedUser = create<AuthStore>((set) => ({
 
 export const useUserStore = create<UserStore>((set) => ({
   users: [],
-  setUsers: (users: Partial<User>[]) => set({ users }),
+  setUsers: (users: User[]) => set({ users }),
 }));

@@ -15,58 +15,65 @@ export const users: User[] = [
   },
 ];
 
-export const usersMock: Partial<User>[] = [
+export const usersMock: User[] = [
   {
     id: 1,
     name: "Leanne Graham",
     email: "Sincere@april.biz",
+    password: "123",
   },
   {
     id: 2,
     name: "Ervin Howell",
-
+    password: "123",
     email: "Shanna@melissa.tv",
   },
   {
     id: 3,
     name: "Clementine Bauch",
-
+    password: "123",
     email: "Nathan@yesenia.net",
   },
   {
     id: 4,
     name: "Patricia Lebsack",
-
+    password: "123",
     email: "Julianne.OConner@kory.org",
   },
   {
     id: 5,
     name: "Chelsey Dietrich",
     email: "Lucio_Hettinger@annie.ca",
+    password: "123",
   },
   {
     id: 6,
     name: "Mrs. Dennis Schulist",
     email: "Karley_Dach@jasper.info",
+    password: "123",
   },
   {
     id: 7,
     name: "Kurtis Weissnat",
     email: "Telly.Hoeger@billy.biz",
+    password: "123",
   },
   {
     id: 8,
     name: "Nicholas Runolfsdottir V",
     email: "Sherwood@rosamond.me",
+    password: "123",
   },
   {
     id: 9,
     name: "Glenna Reichert",
     email: "Chaim_McDermott@dana.io",
+    password: "123",
   },
   {
     id: 10,
     name: "Clementina DuBuque",
     email: "Rey.Padberg@karina.biz",
+    password: "123",
   },
 ];
