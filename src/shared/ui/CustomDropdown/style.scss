@@ -1,0 +1,81 @@
+.customDropdown {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  min-width: 200px;
+  height: 100%;
+
+  &__valueBar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: 1px solid cadetblue;
+    font-size: 1.75rem;
+    cursor: pointer;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
+
+    &:hover {
+      background-color: cadetblue;
+      color: #fff;
+    }
+
+    &-toggle {
+      border: none;
+      background: transparent;
+      transition: transform 0.3s ease;
+
+      &--rotated {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  &__options {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    min-height: 20rem;
+    overflow-y: auto;
+    border: 1px solid cadetblue;
+    border-radius: 8px;
+    margin: 0;
+    padding: 0;
+    margin-top: 8px;
+    background-color: #ededed;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition:
+      transform 0.3s ease-in,
+      visibility 0.3s ease-in;
+
+    &--opened {
+      transform: translateY(30px);
+      visibility: visible;
+    }
+  }
+
+  &__item {
+    border-radius: 8px;
+    list-style: none;
+    font-size: 1.75rem;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  &__options &__item {
+    padding: 8px 16px;
+
+    &:hover {
+      background-color: rgb(119, 196, 199);
+    }
+  }
+}
