@@ -11,6 +11,7 @@
 - Yup
 - SCSS
 - Vite
+- Feature-Sliced Design
 
 ## Возможности
 - Авторизация пользователя
