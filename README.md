@@ -24,24 +24,8 @@
 - Валидация форм
 
 ## Архитектура - Feature-Sliced Design
-features/
-│
-├── Authorization
-├── AddTodo
-├── EditTodo
-├── Pagination
-├── CustomDropdown
+<img width="155" height="366" alt="image" src="https://github.com/user-attachments/assets/e0b1ddac-1696-4c1f-835c-47460708a5ea" />
 
-entities/
-│
-├── Todo
-├── User
-
-shared/
-│
-├── api
-├── hooks
-├── ui
 
 ## Установка
 1. git clone https://github.com/pavelbekarev/supervisor-app.git
