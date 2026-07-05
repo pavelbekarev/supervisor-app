@@ -1,4 +1,3 @@
-import { useTodoList } from "#entities/Todo/model/store";
 import "../style.scss"
 
 export function Pagination({ page, pagesCount, setPage }: { page: number; pagesCount: number; setPage: any } ) {

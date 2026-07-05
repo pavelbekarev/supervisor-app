@@ -2,7 +2,7 @@ import { useAuthorization } from "../model/useAuthorization"
 import "../style.scss"
 
 export function AuthorizationForm() {
-    const { formData, handleChange,handleSubmit, isLoading } = useAuthorization();
+    const { handleChange,handleSubmit, isLoading } = useAuthorization();
 
     return (
         <form onSubmit={handleSubmit} className="authorizationForm form">

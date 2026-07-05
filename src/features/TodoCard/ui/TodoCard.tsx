@@ -1,7 +1,5 @@
 import type { Todo } from "#entities/Todo";
-import DeleteButton from "#features/DeleteEntity";
 import { DeleteButtonIcon } from "#features/DeleteEntity/ui/DeleteButtonIcon";
-import EditButton from "#features/EditEntity";
 import { EditButtonIcon } from "#features/EditEntity/ui/EditButtonIcon";
 import "../style.scss"
 

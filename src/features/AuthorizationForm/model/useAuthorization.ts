@@ -1,6 +1,5 @@
 import router from "#app/routes/router";
 import type { UserAuthorization } from "#entities/User";
-import { users } from "#entities/User/model/mock";
 import { useAuthorizatedUser } from "#entities/User/model/store";
 import { useState } from "react";
 import { AuthFormValidate } from "./validation";
