@@ -43,9 +43,11 @@ https://jsonplaceholder.typicode.com/
 ## Авторизация в приложении
 - замоканы два тестовых пользователя
 
+1. 
 - email: admin@mail.ru
 - password: 123456
 
+2. 
 - email: user@mail.ru
 - password: qwerty
 
