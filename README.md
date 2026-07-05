@@ -1,6 +1,6 @@
 # Supervisor App
 - приложение для отслеживания статусов задач.
-https://supervisor-app-iota.vercel.app/login
+https://supervisor-app-iota.vercel.app/
 
 ## Стек
 - React
