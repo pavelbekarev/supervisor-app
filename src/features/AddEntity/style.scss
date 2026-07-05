@@ -1,5 +1,7 @@
 .addModal {
   height: auto;
+  margin: 0 !important;
+
   &__controls {
     display: flex;
     gap: 2rem;

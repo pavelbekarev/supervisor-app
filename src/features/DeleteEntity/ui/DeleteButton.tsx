@@ -5,7 +5,7 @@ export function DeleteButton({ data }: {data: Todo}) {
     const open = useModalStore((state) => state.open);
 
     return (
-        <button className="button deleteButton" onClick={() => open("deleteTodo", data)}>
+        <button aria-label="Кнопка удаления записи" className="button deleteButton" onClick={() => open("deleteTodo", data)}>
             Удалить
         </button>
     )

@@ -7,6 +7,16 @@
   border: 1px solid #aaaaaa;
   max-width: 20rem;
   width: 100%;
+  transition: background-color 0.3s ease-in;
+
+  svg {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  &:hover {
+    background-color: #f1f1f1;
+  }
 
   &--done {
     background-color: rgba(0, 219, 0, 0.445);
@@ -15,5 +25,12 @@
   &__title {
     font-size: 1.75rem;
     font-family: sans-serif;
+  }
+
+  &__controls {
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-end;
+    gap: 1rem;
   }
 }

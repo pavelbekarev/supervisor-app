@@ -1,0 +1,26 @@
+.pagination {
+  display: flex;
+  flex-flow: row;
+  max-height: 5rem;
+  height: 100%;
+  align-items: center;
+  gap: 5rem;
+
+  &__text {
+    font-size: 1.75rem;
+    font-family: sans-serif;
+  }
+
+  &__button {
+    padding: 1rem 4rem;
+    background-color: transparent;
+    border: 1px solid #636363;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in;
+
+    &:hover {
+      background-color: #ededed;
+    }
+  }
+}

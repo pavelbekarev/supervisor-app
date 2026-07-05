@@ -5,8 +5,8 @@ export function AddButton() {
     const open = useModalStore(state => state.open)
 
     return (
-        <button onClick={() => open('addTodo')}>
-            Добавить
+        <button className="addButton button" onClick={() => open('addTodo')}>
+            Добавить новую запись
         </button>
     )
 }

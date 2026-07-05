@@ -1,5 +1,12 @@
 .todoGallery {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 5rem;
   width: 100%;
+
+  &__items {
+    display: flex;
+  }
 }
