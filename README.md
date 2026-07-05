@@ -24,7 +24,8 @@
 - Валидация форм
 
 ## Архитектура - Feature-Sliced Design
-<img width="155" height="366" alt="image" src="https://github.com/user-attachments/assets/e0b1ddac-1696-4c1f-835c-47460708a5ea" />
+<img width="246" height="509" alt="image" src="https://github.com/user-attachments/assets/64c0fb6c-ac68-4054-a529-760e14a4efd4" />
+
 
 
 ## Установка
