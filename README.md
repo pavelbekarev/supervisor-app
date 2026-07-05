@@ -39,3 +39,13 @@
 Для получения данных используется JSONPlaceholder.
 https://jsonplaceholder.typicode.com/
 
+## Авторизация в приложении
+- замоканы два тестовых пользователя
+
+email: admin@mail.ru
+password: 123456
+
+email: user@mail.ru
+password: qwerty
+
+Пользователи имеют одинаковые права и ничем не отличаются
