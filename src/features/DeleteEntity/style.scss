@@ -1,0 +1,35 @@
+.deleteModal {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem;
+  border: 2px solid #6b6b6b;
+  border-radius: 1rem;
+
+  &__title {
+    font-size: 2rem;
+    font-family: sans-serif;
+  }
+
+  &__controls {
+    display: flex;
+    flex-flow: row;
+    gap: 5rem;
+  }
+
+  &__button {
+    padding: 1rem 2rem;
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    background-color: transparent;
+    border: 1px solid #aaaaaa;
+    transition: background-color 0.3s ease-out;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #eeeeee;
+    }
+  }
+}

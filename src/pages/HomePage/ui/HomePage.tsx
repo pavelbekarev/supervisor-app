@@ -1,4 +1,5 @@
 import { useAuthorizatedUser } from "#entities/User/model/store";
+import { AddButton } from "#features/AddEntity";
 import TodoGallery from "#widgets/TodoGallery";
 import "../style.scss";
 
@@ -11,6 +12,7 @@ export function HomePage() {
     
     return (
         <>
+            <AddButton />
             <TodoGallery />
         </>
     )

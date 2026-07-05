@@ -6,15 +6,23 @@ import { ProtectedRoute } from "./ProtectedRoute";
 
 const router = createBrowserRouter([
   {
-    element: <ProtectedRoute />,
+    element: <App />,
     children: [
-      { index: true, Component: HomePage },
+      {
+        element: <ProtectedRoute />,
+        children: [
+          {
+            index: true,
+            Component: HomePage,
+          },
+        ],
+      },
+      {
+        path: "/login",
+        Component: AuthorizationPage,
+      },
     ],
   },
-  {
-    path: "/login",
-    Component: AuthorizationPage
-  }
 ]);
 
 export default router;
