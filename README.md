@@ -1,5 +1,6 @@
 # Supervisor App
 - приложение для отслеживания статусов задач.
+https://supervisor-app-k8or-nine.vercel.app/login
 
 ## Стек
 - React
