@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getUsers } from "../api/getUsers";
 import { useUserStore } from "./store";
 import { useEffect } from "react";
+import { usersMock } from "./mock";
 
 export function useUsers() {
   const setUsers = useUserStore((state) => state.setUsers);
@@ -12,9 +13,13 @@ export function useUsers() {
   });
 
   useEffect(() => {
-    if (data) {
-      setUsers(data);
-    }
+    setTimeout(() => {
+      if (data) {
+        setUsers(data);
+      } else {
+        setUsers(usersMock);
+      }
+    }, 5000);
   }, [data, setUsers]);
 
   return {

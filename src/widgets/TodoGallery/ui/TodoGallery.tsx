@@ -15,7 +15,7 @@ export function TodoGallery() {
         <div className="todoGallery">
             <div className="todoGallery__items">
                 {
-                    !isLoading ? currentItems?.map((item: Todo) => (
+                    !isLoading || currentItems.length !== 0 ? currentItems?.map((item: Todo) => (
                         <TodoCard
                             key={item.id}
                             todo={item}
@@ -24,6 +24,7 @@ export function TodoGallery() {
                     <h1>Данные загружаются. Пожалуйста, подождите</h1>  
                 }
             </div>
+            
             <Pagination 
                 page={page}
                 pagesCount={pagesCount}
