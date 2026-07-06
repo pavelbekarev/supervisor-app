@@ -14,7 +14,7 @@ export function CustomDropdown<T>(props: Props<T>) {
     const toggleDropdown = () => {
         setIsOpen(prev => !prev)
     }
-    const handleChange = (item: any) => {
+    const handleChange = (item: T) => {
         onChange(item);
         setIsOpen(prev => !prev)
     }

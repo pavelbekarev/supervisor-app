@@ -14,7 +14,7 @@ export function useAuthorization() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const authorizeUser = useAuthorizatedUser((state) => state.authorizeUser);
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     setIsLoading(true);
@@ -44,7 +44,7 @@ export function useAuthorization() {
     }
   };
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
     setFormData((prev) => ({ ...prev, [name]: value }));

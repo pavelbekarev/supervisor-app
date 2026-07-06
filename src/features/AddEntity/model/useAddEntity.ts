@@ -15,7 +15,7 @@ export function useAddEntity() {
   const addTodo = useTodoList((state) => state.addTodo);
   const close = useModalStore((state) => state.close);
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {
@@ -38,7 +38,7 @@ export function useAddEntity() {
     };
   }, []);
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
 
     setFormData((prev) => ({

@@ -1,6 +1,6 @@
 import "../style.scss"
 
-export function Pagination({ page, pagesCount, setPage }: { page: number; pagesCount: number; setPage: any } ) {
+export function Pagination({ page, pagesCount, setPage }: { page: number; pagesCount: number; setPage: (page: number) => void; } ) {
     return (
         <div className="pagination">
             <button

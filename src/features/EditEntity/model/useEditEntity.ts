@@ -18,7 +18,7 @@ export function useEditEntity(editData: Todo) {
     };
   }, []);
 
-  const handleSubmit = async (e: any) => {
+  const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     try {
@@ -33,7 +33,7 @@ export function useEditEntity(editData: Todo) {
     }
   };
 
-  const handleChange = (e: any) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
 
     setFormData((prev) => ({
