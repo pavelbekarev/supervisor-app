@@ -4,7 +4,7 @@ import type { UserDropdownProps } from "#entities/User/model/types";
 import { mapUserToDropdown } from "#entities/User/model/mapper";
 
 export function UserDropdown(props: UserDropdownProps) {
-    const { onChange, choosenUserId } = props;
+    const { onChange, choosenUserId, isLoading } = props;
 
     const users = useUserStore(state => state.users);
     const selectedUser = users.find((user) => user.id === choosenUserId);
@@ -19,6 +19,6 @@ export function UserDropdown(props: UserDropdownProps) {
     }));
 
     return (
-        <CustomDropdown options={options} onChange={onChange} value={currentUser} />
+        <CustomDropdown isLoading={isLoading} options={options} onChange={onChange} value={currentUser} />
     )
 }
