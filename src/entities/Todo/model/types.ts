@@ -8,6 +8,7 @@ export interface Todo {
 export type TodoForm = Pick<Todo, "title" | "userId">;
 
 export type CreateTodoDTO = TodoForm;
+export type EditTodoDTO = Pick<Todo, "id" | "title" | "userId">;
 
 export interface TodoStore {
   todos: Todo[];
