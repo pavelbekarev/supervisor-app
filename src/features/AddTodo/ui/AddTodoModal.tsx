@@ -14,7 +14,7 @@ export function AddTodoModal() {
         if (data) {
             setUsers(data);
         }
-    }, [data, isError])
+    }, [data, isError, setUsers])
     
     const close = useModalStore(state => state.close);
     const { formData, handleChange, handleSubmit, handleChangeSelect, errors } = useAddTodo();

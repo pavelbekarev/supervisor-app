@@ -15,7 +15,7 @@ export function EditTodoModal({ editData }: { editData: EditTodoDTO }) {
         if (data) {
             setUsers(data);
         }
-    }, [data, isError])
+    }, [data, isError, setUsers])
     const close = useModalStore(state => state.close)
     const { formData, handleChange, handleSubmit, errors, handleChangeSelect } = useEditEntity(editData);
 

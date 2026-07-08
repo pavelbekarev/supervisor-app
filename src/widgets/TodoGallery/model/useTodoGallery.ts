@@ -11,7 +11,7 @@ export function useTodoGallery() {
     if (data) {
       setTodos(data);
     }
-  }, [data]);
+  }, [data, setTodos]);
 
   return {
     isLoading,
