@@ -1,24 +1,21 @@
-import type { Todo } from "#entities/Todo";
+import { mapCreateTodo } from "#entities/Todo/model/mapper";
 import { useTodoStore } from "#entities/Todo/model/store";
-import type { FormErrors, TodoForm } from "#entities/Todo/model/types";
+import type { TodoForm } from "#entities/Todo/model/types";
 import { TodoValidation } from "#entities/Todo/model/validation";
 import { useModalStore } from "#shared/ui/Modal/model/store";
 import { useEffect, useState } from "react";
 import * as Yup from "yup";
+import type { FormErrors } from "#entities/Todo/model/types";
 
-export function useEditEntity(editData: Todo) {
-  const [formData, setFormData] = useState<Todo>(editData);
-  const { updateTodo } = useTodoStore();
-  const close = useModalStore((state) => state.close);
+export function useAddTodo() {
+  const [formData, setFormData] = useState<TodoForm>({
+    title: "",
+    userId: undefined,
+  });
   const [errors, setErrors] = useState<FormErrors>({});
 
-  useEffect(() => {
-    document.body.style.overflow = "hidden";
-
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, []);
+  const addTodo = useTodoStore((state) => state.addTodo);
+  const close = useModalStore((state) => state.close);
 
   const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -28,12 +25,13 @@ export function useEditEntity(editData: Todo) {
         abortEarly: false,
       });
 
-      updateTodo(editData.id, formData);
+      const resultTodo = mapCreateTodo(formData);
+
+      addTodo(resultTodo);
       close();
     } catch (e) {
       if (e instanceof Yup.ValidationError) {
         const formErrors: FormErrors = {};
-
         e.inner.forEach((error) => {
           if (error.path) {
             formErrors[error.path as keyof TodoForm] = error.message;
@@ -41,10 +39,17 @@ export function useEditEntity(editData: Todo) {
         });
 
         setErrors(formErrors);
-        console.debug(formErrors);
       }
     }
   };
+
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
@@ -55,10 +60,18 @@ export function useEditEntity(editData: Todo) {
     }));
   };
 
+  const handleChangeSelect = (userId: number) => {
+    setFormData((prev) => ({
+      ...prev,
+      userId,
+    }));
+  };
+
   return {
     formData,
-    handleSubmit,
     handleChange,
+    handleSubmit,
+    handleChangeSelect,
     errors,
   };
 }

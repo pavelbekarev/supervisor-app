@@ -1,12 +1,29 @@
 .form {
   display: flex;
-  padding: 5rem;
+  padding: 10rem;
   border: 2px solid #6b6b6b;
   border-radius: 1rem;
 
   &__controls {
     display: flex;
+    justify-content: center;
     gap: 2rem;
+  }
+
+  &__error {
+    opacity: 0;
+    color: rgb(194, 0, 0);
+    font-size: 1.5rem;
+    text-align: center;
+    transform: translateY(-2px);
+    transition:
+      transform 0.3s ease-in,
+      opacity 0.3s ease-in;
+
+    &--visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
 
