@@ -13,7 +13,6 @@ export interface UserAuthorization {
 export interface UserDropdownProps {
   onChange: (userId: number) => void;
   choosenUserId?: number;
-  isLoading?: boolean;
 }
 
 export type UserDropdown = Pick<User, "id" | "name">;

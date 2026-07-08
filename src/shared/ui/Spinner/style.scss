@@ -9,5 +9,9 @@
 }
 
 .spinner {
-  animation: rotateSpinner 1s infinite forwards;
+  svg {
+    width: 2rem;
+    height: 2rem;
+    animation: rotateSpinner 1s linear infinite;
+  }
 }

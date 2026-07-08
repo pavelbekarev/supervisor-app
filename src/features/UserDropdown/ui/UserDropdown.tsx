@@ -5,8 +5,8 @@ import { mapUserToDropdown } from "#entities/User/model/mapper";
 import { useUsers } from "#entities/User/model/useUsers";
 
 export function UserDropdown(props: UserDropdownProps) {
-    useUsers();
-    const { onChange, choosenUserId, isLoading } = props;
+    const { isLoading } = useUsers();
+    const { onChange, choosenUserId } = props;
 
     const users = useUserStore(state => state.users);
     const selectedUser = users.find((user) => user.id === choosenUserId);
