@@ -1,17 +1,17 @@
-import type { Todo } from "#entities/Todo";
+import { mapCreateTodo } from "#entities/Todo/model/mapper";
 import { useTodoStore } from "#entities/Todo/model/store";
+import type { TodoForm } from "#entities/Todo/model/types";
 import { TodoValidation } from "#entities/Todo/model/validation";
 import { useModalStore } from "#shared/ui/Modal/model/store";
 import { useEffect, useState } from "react";
 import * as Yup from "yup";
 
-export function useAddEntity() {
-  const [formData, setFormData] = useState<Todo>({
-    id: -1,
+export function useAddTodo() {
+  const [formData, setFormData] = useState<TodoForm>({
     title: "",
-    completed: false,
-    userId: -1,
+    userId: undefined,
   });
+
   const addTodo = useTodoStore((state) => state.addTodo);
   const close = useModalStore((state) => state.close);
 
@@ -19,8 +19,12 @@ export function useAddEntity() {
     e.preventDefault();
 
     try {
-      await TodoValidation.validate(formData);
-      addTodo(formData);
+      await TodoValidation.validate(formData, {
+        abortEarly: false,
+      });
+
+      const resultTodo = mapCreateTodo(formData);
+      addTodo(resultTodo);
       close();
     } catch (e) {
       if (e instanceof Yup.ValidationError) {

@@ -4,14 +4,14 @@ import { useUsers } from "#entities/User/model/useUsers";
 import CustomDropdown from "#shared/ui/CustomDropdown";
 import { useModalStore } from "#shared/ui/Modal/model/store";
 import { useState } from "react";
-import { useAddEntity } from "../model/useAddEntity";
+import { useAddTodo } from "../model/useAddTodo";
 import type { User } from "#entities/User";
 
-export function AddModal() {
+export function AddTodoModal() {
     useUsers();
     const users = useUserStore(state => state.users);
     const close = useModalStore(state => state.close);
-    const { handleChange, handleSubmit } = useAddEntity();
+    const { handleChange, handleSubmit } = useAddTodo();
 
     const [choosenUser, setChoosenUser] = useState<User | null>(null);
 

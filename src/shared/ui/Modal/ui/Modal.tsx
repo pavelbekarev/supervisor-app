@@ -4,7 +4,7 @@ import { useModalStore } from "../model/store"
 import "../style.scss"
 import { DeleteModal } from "#features/DeleteEntity/ui/DeleteModal";
 import type { Todo } from "#entities/Todo";
-import { AddModal } from "#features/AddEntity";
+import { AddTodoModal } from "#features/AddTodo";
 
 export function Modal() {
     const { close, data, isOpen, type } = useModalStore();
@@ -17,8 +17,6 @@ export function Modal() {
             dialogRef.current?.close();
         }
     }, [isOpen]);
-
-    
 
     if (!isOpen) return;
 
@@ -34,7 +32,7 @@ export function Modal() {
             }
             {
                 type === 'addTodo' && 
-                <AddModal />
+                <AddTodoModal />
             }
 
             <button className="modal__close" onClick={close}>X</button>

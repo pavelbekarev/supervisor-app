@@ -1,5 +1,5 @@
 import { useAuthorizatedUser } from "#entities/User/model/store";
-import { AddButton } from "#features/AddEntity";
+import { AddButton } from "#features/AddTodo";
 import "../style.scss"
 
 export function Header() {
