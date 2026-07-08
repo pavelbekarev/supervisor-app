@@ -3,9 +3,18 @@ import { useUsers } from "#entities/User/model/useUsers";
 import { useModalStore } from "#shared/ui/Modal/model/store";
 import { useAddTodo } from "../model/useAddTodo";
 import UserDropdown from "#features/UserDropdown";
+import { useEffect } from "react";
+import { useUserStore } from "#entities/User/model/store";
 
 export function AddTodoModal() {
-    useUsers();
+    const setUsers = useUserStore(state => state.setUsers)
+    const { data, isError } = useUsers();
+
+    useEffect(() => {
+        if (data) {
+            setUsers(data);
+        }
+    }, [data, isError, setUsers])
     
     const close = useModalStore(state => state.close);
     const { formData, handleChange, handleSubmit, handleChangeSelect, errors } = useAddTodo();

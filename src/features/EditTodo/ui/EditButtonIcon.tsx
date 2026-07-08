@@ -1,7 +1,8 @@
+import type { EditTodoDTO } from "#entities/Todo/model/types";
 import { useModalStore } from "#shared/ui/Modal/model/store";
 import "../style.scss"
 
-export function EditButtonIcon<T>({ data }: {data: T}) {
+export function EditButtonIcon({ data }: { data: EditTodoDTO }) {
     const open = useModalStore((state) => state.open);
 
     return (

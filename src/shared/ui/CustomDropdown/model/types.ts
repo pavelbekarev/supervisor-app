@@ -6,4 +6,5 @@ export interface CustomDropdownProps {
   options: DropdownOption[];
   value: DropdownOption | null;
   onChange: (id: number) => void;
+  isLoading?: boolean;
 }

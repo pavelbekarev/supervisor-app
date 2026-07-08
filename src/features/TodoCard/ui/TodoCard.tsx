@@ -1,6 +1,6 @@
 import type { Todo } from "#entities/Todo";
 import { DeleteButtonIcon } from "#features/DeleteEntity/ui/DeleteButtonIcon";
-import { EditButtonIcon } from "#features/EditEntity/ui/EditButtonIcon";
+import { EditButtonIcon } from "#features/EditTodo/ui/EditButtonIcon";
 import "../style.scss"
 
 export function TodoCard({ todo }: { todo: Todo }) {

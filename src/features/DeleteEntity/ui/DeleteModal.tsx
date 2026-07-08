@@ -1,8 +1,8 @@
-import type { Todo } from "#entities/Todo";
+import type { EditTodoDTO } from "#entities/Todo/model/types";
 import { useDeleteEntity } from "../model/useDeleteEntity";
 import "../style.scss"
 
-export function DeleteModal({ data }: { data: Todo }) {
+export function DeleteModal({ data }: { data: EditTodoDTO }) {
     const { handleDecline, handleDelete } = useDeleteEntity();
 
     return (
