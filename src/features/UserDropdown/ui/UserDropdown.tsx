@@ -2,8 +2,10 @@ import CustomDropdown from "#shared/ui/CustomDropdown";
 import { useUserStore } from "#entities/User/model/store";
 import type { UserDropdownProps } from "#entities/User/model/types";
 import { mapUserToDropdown } from "#entities/User/model/mapper";
+import { useUsers } from "#entities/User/model/useUsers";
 
 export function UserDropdown(props: UserDropdownProps) {
+    useUsers();
     const { onChange, choosenUserId, isLoading } = props;
 
     const users = useUserStore(state => state.users);
