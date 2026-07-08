@@ -1,3 +1,4 @@
+import type { Todo } from "#entities/Todo";
 import { create } from "zustand";
 
 type ModalType = "editTodo" | "deleteTodo" | "addTodo" | null;
@@ -5,8 +6,8 @@ type ModalType = "editTodo" | "deleteTodo" | "addTodo" | null;
 interface ModalStore {
   isOpen: boolean;
   type: ModalType;
-  data: unknown;
-  open: (type: ModalType, data?: unknown) => void;
+  data: Todo | null;
+  open: (type: ModalType, data?: Todo) => void;
   close: () => void;
 }
 
