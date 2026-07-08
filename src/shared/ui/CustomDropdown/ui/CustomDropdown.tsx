@@ -1,31 +1,27 @@
 import { useState } from "react"
 import "../style.scss"
+import type { CustomDropdownProps, DropdownOption } from "../model/types";
 
-interface Props<T> {
-    options: T[],
-    value: T | null,
-    onChange: (value: T) => void,
-    getLabel: (value: T) => string,
-}
-
-export function CustomDropdown<T>(props: Props<T>) {
-    const { onChange, options, value, getLabel } = props;
+export function CustomDropdown(props: CustomDropdownProps) {
+    const { onChange, options, value } = props;
     const [isOpen, setIsOpen] = useState<boolean>(false);
+
     const toggleDropdown = () => {
         setIsOpen(prev => !prev)
     }
-    const handleChange = (item: T) => {
-        onChange(item);
+    
+    const handleChange = (item: DropdownOption) => {
+        onChange(item.id);
         setIsOpen(prev => !prev)
     }
 
     return (
         <div className="customDropdown">
-            <div onClick={() => toggleDropdown()} className="customDropdown__valueBar">{ value ? getLabel(value) : "Выберите пользователя" }</div>
+            <div onClick={() => toggleDropdown()} className="customDropdown__valueBar">{ value ? value.label : "Выберите значение" }</div>
             <ul className={`customDropdown__options ${isOpen ? 'customDropdown__options--opened' : ''}`}>
                 {
                     options.map((item, index) => (
-                        <li onClick={() => handleChange(item)} key={index} className="customDropdown__item">{ getLabel(item) }</li>
+                        <li onClick={() => handleChange(item)} key={index} className="customDropdown__item">{ item.label }</li>
                     ))
                 }
             </ul>

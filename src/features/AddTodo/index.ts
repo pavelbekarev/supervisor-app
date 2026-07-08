@@ -1,4 +1,4 @@
 import { AddButton } from "./ui/AddButton";
-import { AddTodoModal } from "./ui/AddModal";
+import { AddTodoModal } from "./ui/AddTodoModal";
 
 export { AddButton, AddTodoModal };

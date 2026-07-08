@@ -1,19 +1,14 @@
 import { todoFormConfig } from "#entities/Todo";
-import { useUserStore } from "#entities/User/model/store";
 import { useUsers } from "#entities/User/model/useUsers";
-import CustomDropdown from "#shared/ui/CustomDropdown";
 import { useModalStore } from "#shared/ui/Modal/model/store";
-import { useState } from "react";
 import { useAddTodo } from "../model/useAddTodo";
-import type { User } from "#entities/User";
+import UserDropdown from "#features/UserDropdown";
 
 export function AddTodoModal() {
     useUsers();
-    const users = useUserStore(state => state.users);
+    
     const close = useModalStore(state => state.close);
-    const { handleChange, handleSubmit } = useAddTodo();
-
-    const [choosenUser, setChoosenUser] = useState<User | null>(null);
+    const { formData, handleChange, handleSubmit, handleChangeSelect } = useAddTodo();
 
     return (
         <form onSubmit={handleSubmit} className="form addModal">
@@ -26,15 +21,10 @@ export function AddTodoModal() {
                 ))
             }
             <div className="form__item">
-                {/* <label className="form__label" htmlFor="users">Выберите человека</label>
-                <select className="form__input" name="users" id="users">
-                    {
-                        users.map((item) => (
-                            <option className="form__input" value={item.id}>{ item.name }</option>
-                        ))
-                    }
-                </select> */}
-                <CustomDropdown<User> options={users} onChange={setChoosenUser} value={choosenUser} getLabel={(user) => user.name} />
+                <UserDropdown
+                    choosenUserId={formData.userId}
+                    onChange={handleChangeSelect}
+                />
             </div>
 
             <div className="form__controls addModal__controls">

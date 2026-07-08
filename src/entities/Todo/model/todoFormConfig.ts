@@ -4,9 +4,4 @@ export const todoFormConfig = [
     type: "text",
     label: "Название задачи",
   },
-  {
-    name: "completed",
-    type: "checkbox",
-    label: "Статус",
-  },
 ];

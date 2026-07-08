@@ -24,6 +24,7 @@ export function useAddTodo() {
       });
 
       const resultTodo = mapCreateTodo(formData);
+
       addTodo(resultTodo);
       close();
     } catch (e) {
@@ -51,9 +52,17 @@ export function useAddTodo() {
     }));
   };
 
+  const handleChangeSelect = (userId: number) => {
+    setFormData((prev) => ({
+      ...prev,
+      userId,
+    }));
+  };
+
   return {
     formData,
     handleChange,
     handleSubmit,
+    handleChangeSelect,
   };
 }
