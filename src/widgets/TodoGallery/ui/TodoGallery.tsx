@@ -1,5 +1,6 @@
 import type { Todo } from "#entities/Todo";
 import { useTodoStore } from "#entities/Todo/model/store";
+import { useUsers } from "#entities/User/model/useUsers";
 import Pagination from "#features/Pagination";
 import { usePagination } from "#features/Pagination/model/usePagination";
 import TodoCard from "#features/TodoCard"
@@ -8,6 +9,7 @@ import "../style.scss"
 
 export function TodoGallery() {
     const { isLoading } = useLoadTodos();
+    useUsers();
     const todos = useTodoStore(state => state.todos)
     const { currentItems, page, pagesCount, setPage } = usePagination(todos, 12);
 

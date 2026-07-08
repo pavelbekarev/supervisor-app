@@ -9,6 +9,7 @@ export function UserDropdown(props: UserDropdownProps) {
     const { onChange, choosenUserId } = props;
 
     const users = useUserStore(state => state.users);
+    
     const selectedUser = users.find((user) => user.id === choosenUserId);
 
     const currentUser = selectedUser

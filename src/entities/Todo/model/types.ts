@@ -1,3 +1,5 @@
+import type { User } from "#entities/User";
+
 export interface Todo {
   id: number;
   title: string;
@@ -24,4 +26,11 @@ export interface TodoFormField {
   name: keyof TodoForm;
   label: string;
   type: "text";
+}
+
+export interface TodoView {
+  id: number;
+  title: string;
+  completed: boolean;
+  user?: User;
 }

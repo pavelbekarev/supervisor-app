@@ -29,6 +29,7 @@ export function EditTodoModal({ editData }: { editData: EditTodoDTO }) {
                 </span>
             </div>
             <div className="form__item">
+                <label className="form__label">Сотрудник</label>
                 <UserDropdown
                     onChange={handleChangeSelect}
                     choosenUserId={formData.userId}

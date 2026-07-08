@@ -23,7 +23,10 @@ export function Modal() {
         <dialog ref={dialogRef} className="modal">
             {
                 type === 'editTodo' && data &&
-                <EditTodoModal editData={data} />
+                <>
+                    <h2 className="modal__title">Редактирование записи</h2>
+                    <EditTodoModal editData={data} />
+                </>
             }
             {
                 type === 'deleteTodo' && data &&
@@ -31,7 +34,10 @@ export function Modal() {
             }
             {
                 type === 'addTodo' && 
-                <AddTodoModal />
+                <>
+                    <h2 className="modal__title">Создать новую запись</h2>
+                    <AddTodoModal />
+                </>
             }
 
             <button className="modal__close" onClick={close}>X</button>

@@ -27,6 +27,7 @@ export function AddTodoModal() {
                 ))
             }
             <div className="form__item">
+                <label className="form__label" htmlFor="">Сотрудник</label>
                 <UserDropdown
                     choosenUserId={formData.userId}
                     onChange={handleChangeSelect}
