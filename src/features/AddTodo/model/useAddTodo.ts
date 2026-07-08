@@ -5,12 +5,14 @@ import { TodoValidation } from "#entities/Todo/model/validation";
 import { useModalStore } from "#shared/ui/Modal/model/store";
 import { useEffect, useState } from "react";
 import * as Yup from "yup";
+import type { FormErrors } from "#entities/Todo/model/types";
 
 export function useAddTodo() {
   const [formData, setFormData] = useState<TodoForm>({
     title: "",
     userId: undefined,
   });
+  const [errors, setErrors] = useState<FormErrors>({});
 
   const addTodo = useTodoStore((state) => state.addTodo);
   const close = useModalStore((state) => state.close);
@@ -29,8 +31,14 @@ export function useAddTodo() {
       close();
     } catch (e) {
       if (e instanceof Yup.ValidationError) {
-        alert(e.message);
-        return;
+        const formErrors: FormErrors = {};
+        e.inner.forEach((error) => {
+          if (error.path) {
+            formErrors[error.path as keyof TodoForm] = error.message;
+          }
+        });
+
+        setErrors(formErrors);
       }
     }
   };
@@ -64,5 +72,6 @@ export function useAddTodo() {
     handleChange,
     handleSubmit,
     handleChangeSelect,
+    errors,
   };
 }

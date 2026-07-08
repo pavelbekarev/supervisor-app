@@ -1,5 +1,6 @@
 import type { Todo } from "#entities/Todo";
 import { useTodoStore } from "#entities/Todo/model/store";
+import type { FormErrors, TodoForm } from "#entities/Todo/model/types";
 import { TodoValidation } from "#entities/Todo/model/validation";
 import { useModalStore } from "#shared/ui/Modal/model/store";
 import { useEffect, useState } from "react";
@@ -9,6 +10,7 @@ export function useEditEntity(editData: Todo) {
   const [formData, setFormData] = useState<Todo>(editData);
   const { updateTodo } = useTodoStore();
   const close = useModalStore((state) => state.close);
+  const [errors, setErrors] = useState<FormErrors>({});
 
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -22,13 +24,24 @@ export function useEditEntity(editData: Todo) {
     e.preventDefault();
 
     try {
-      await TodoValidation.validate(formData);
+      await TodoValidation.validate(formData, {
+        abortEarly: false,
+      });
+
       updateTodo(editData.id, formData);
       close();
     } catch (e) {
       if (e instanceof Yup.ValidationError) {
-        alert(e.message);
-        return;
+        const formErrors: FormErrors = {};
+
+        e.inner.forEach((error) => {
+          if (error.path) {
+            formErrors[error.path as keyof TodoForm] = error.message;
+          }
+        });
+
+        setErrors(formErrors);
+        console.debug(formErrors);
       }
     }
   };
@@ -46,5 +59,6 @@ export function useEditEntity(editData: Todo) {
     formData,
     handleSubmit,
     handleChange,
+    errors,
   };
 }

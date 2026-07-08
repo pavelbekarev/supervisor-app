@@ -8,16 +8,25 @@ export function AddTodoModal() {
     useUsers();
     
     const close = useModalStore(state => state.close);
-    const { formData, handleChange, handleSubmit, handleChangeSelect } = useAddTodo();
+    const { formData, handleChange, handleSubmit, handleChangeSelect, errors } = useAddTodo();
 
     return (
         <form onSubmit={handleSubmit} className="form addModal">
             {
                 todoFormConfig.map((item, index) => (
-                    <div className="form__item" key={index}>
-                        <label className="form__label" htmlFor={item.name}>{ item.label }</label>
-                        <input onChange={handleChange} className="form__input" type={item.type} id={item.name} name={item.name} />
-                    </div>
+                    <>
+                        <div className="form__item" key={index}>
+                            <label className="form__label" htmlFor={item.name}>{ item.label }</label>
+                            <input  onChange={handleChange} className="form__input" type={item.type} id={item.name} name={item.name} />
+                        </div>
+                        <span 
+                            className={
+                                `form__error 
+                                ${errors[item.name] ? 'form__error--visible' : ''}`
+                            }>
+                            { errors[item.name] }
+                        </span>
+                    </>
                 ))
             }
             <div className="form__item">

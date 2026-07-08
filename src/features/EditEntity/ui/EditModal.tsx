@@ -5,23 +5,32 @@ import "../style.scss"
 
 export function EditModal<T>({ editData }: { editData: T }) {
     const close = useModalStore(state => state.close)
-    const { formData, handleChange, handleSubmit } = useEditEntity(editData as Todo);
+    const { formData, handleChange, handleSubmit, errors } = useEditEntity(editData as Todo);
 
     return (
         <form className="form editModal" onSubmit={handleSubmit}>
             {
                 todoFormConfig.map((item, index) => (
-                    <div className="form__item" key={index}>
-                        <label className="form__label" htmlFor={item.name}>{item.label}</label>
-                        <input 
-                            className="form__input" 
-                            onChange={handleChange} 
-                            type={item.type} 
-                            name={item.name} 
-                            id={item.name} 
-                            value={formData[item.name]} 
-                        />
-                    </div>
+                    <>
+                        <div className="form__item" key={index}>
+                            <label className="form__label" htmlFor={item.name}>{item.label}</label>
+                            <input 
+                                className="form__input" 
+                                onChange={handleChange} 
+                                type={item.type} 
+                                name={item.name} 
+                                id={item.name} 
+                                value={formData[item.name]} 
+                            />
+                        </div>
+                        <span 
+                            className={
+                                `form__error 
+                                ${errors[item.name] ? 'form__error--visible' : ''}`
+                            }>
+                            { errors[item.name] }
+                        </span>
+                    </>
                 ))
             }
 

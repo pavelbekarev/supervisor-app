@@ -16,3 +16,11 @@ export interface TodoStore {
   deleteTodo: (id: number) => void;
   addTodo: (todo: Todo) => void;
 }
+
+export type FormErrors = Partial<Record<keyof TodoForm, string>>;
+
+export interface TodoFormField {
+  name: keyof TodoForm;
+  label: string;
+  type: "text";
+}
