@@ -13,9 +13,9 @@ export function AddTodoModal() {
     return (
         <form onSubmit={handleSubmit} className="form addModal">
             {
-                todoFormConfig.map((item, index) => (
+                todoFormConfig.map((item) => (
                     <>
-                        <div className="form__item" key={index}>
+                        <div className="form__item">
                             <label className="form__label" htmlFor={item.name}>{ item.label }</label>
                             <input  onChange={handleChange} className="form__input" type={item.type} id={item.name} name={item.name} />
                         </div>
