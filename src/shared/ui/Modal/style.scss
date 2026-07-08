@@ -11,7 +11,16 @@
   border: 4px solid #6b6b6b;
   padding: 5rem;
   border-radius: 1rem;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -40%);
+  opacity: 0;
+  transition:
+    opacity 0.3s ease-in,
+    transform 0.3s ease-in;
+
+  &[open] {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
 
   &::backdrop {
     backdrop-filter: blur(25px);
