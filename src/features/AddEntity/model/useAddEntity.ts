@@ -1,5 +1,5 @@
 import type { Todo } from "#entities/Todo";
-import { useTodoList } from "#entities/Todo/model/store";
+import { useTodoStore } from "#entities/Todo/model/store";
 import { TodoValidation } from "#entities/Todo/model/validation";
 import { useModalStore } from "#shared/ui/Modal/model/store";
 import { useEffect, useState } from "react";
@@ -12,7 +12,7 @@ export function useAddEntity() {
     completed: false,
     userId: -1,
   });
-  const addTodo = useTodoList((state) => state.addTodo);
+  const addTodo = useTodoStore((state) => state.addTodo);
   const close = useModalStore((state) => state.close);
 
   const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {

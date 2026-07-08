@@ -1,10 +1,10 @@
 import type { Todo } from "#entities/Todo";
-import { useTodoList } from "#entities/Todo/model/store";
+import { useTodoStore } from "#entities/Todo/model/store";
 import { useModalStore } from "#shared/ui/Modal/model/store";
 import { useEffect } from "react";
 
 export function useDeleteEntity() {
-  const deleteTodo = useTodoList((state) => state.deleteTodo);
+  const deleteTodo = useTodoStore((state) => state.deleteTodo);
   const close = useModalStore((state) => state.close);
 
   const handleDelete = (todo: Todo) => {
