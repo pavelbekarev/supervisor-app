@@ -11,15 +11,10 @@
   border: 4px solid #6b6b6b;
   padding: 5rem;
   border-radius: 1rem;
-  transform: translate(-50%, -40%);
-  opacity: 0;
-  transition:
-    opacity 0.3s ease-in,
-    transform 0.3s ease-in;
+  transform: translate(-50%, -50%);
 
   &[open] {
-    opacity: 1;
-    transform: translate(-50%, -50%);
+    animation: modalOpen 0.25s ease;
   }
 
   &::backdrop {
@@ -45,5 +40,17 @@
     font-size: 2.5rem;
     font-weight: bold;
     letter-spacing: 4%;
+  }
+}
+
+@keyframes modalOpen {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -40%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
   }
 }
