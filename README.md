@@ -28,7 +28,8 @@ https://supervisor-app-iota.vercel.app/
 - Валидация форм
 
 ## Архитектура - Feature-Sliced Design
-<img width="246" height="509" alt="image" src="https://github.com/user-attachments/assets/64c0fb6c-ac68-4054-a529-760e14a4efd4" />
+<img width="305" height="593" alt="image" src="https://github.com/user-attachments/assets/ac53f7e7-cfaa-4c0f-a382-b39bdc85e87d" />
+
 
 
 
